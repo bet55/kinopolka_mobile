@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://s4hstloxxj71"]
+
+[ext_resource type="FontFile" uid="uid://bwmqlpbgmkdls" path="res://Stengazeta-Regular_5.ttf" id="1_amlv4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7eh4"]
+bg_color = Color(0.239216, 0.203922, 0.243137, 0.745098)
+
+[resource]
+Button/colors/font_color = Color(0.87451, 0.235294, 0.168627, 1)
+Button/font_sizes/font_size = 100
+Button/fonts/font = ExtResource("1_amlv4")
+Button/styles/normal = SubResource("StyleBoxFlat_i7eh4")
+Label/colors/font_color = Color(0.87451, 0.235294, 0.168627, 1)
+Label/font_sizes/font_size = 60
+Label/fonts/font = ExtResource("1_amlv4")

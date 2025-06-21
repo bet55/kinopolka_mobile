@@ -1,0 +1,19 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://dtoc1wwydvaff"]
+
+[resource]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 1, 1)
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 763.75
+initial_velocity_max = 965.52
+gravity = Vector3(0, 0, 0)
+scale_min = 27.7
+scale_max = 58.47
+color = Color(0.87451, 0.235294, 0.168627, 1)
+hue_variation_min = -0.5
+hue_variation_max = 0.5
