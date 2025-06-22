@@ -50,5 +50,4 @@ func _on_get_image_http_request_request_completed(result: int, response_code: in
 
 
 func _on_archieve_button_pressed() -> void:
-	var archieve_tween = create_tween()
-	archieve_tween.tween_property(get_parent(), "global_position", Vector2(-1080, 0), 0.3).set_ease(Tween.EASE_OUT)
+	get_tree().change_scene_to_file("res://archieve.tscn")

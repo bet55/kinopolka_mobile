@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvo0krl53kvvj"]
+[gd_scene load_steps=3 format=3 uid="uid://dvo0krl53kvvj"]
 
 [ext_resource type="Script" uid="uid://d0kt8fvygdjvu" path="res://movies.gd" id="1_jum5h"]
+[ext_resource type="Theme" uid="uid://s4hstloxxj71" path="res://new_theme.tres" id="2_bmr4c"]
 
 [node name="Control" type="ScrollContainer"]
 anchors_preset = 15
@@ -26,6 +27,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 expand_mode = 1
 
+[node name="Button" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_bmr4c")
+text = "архив"
+
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_archieve_button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

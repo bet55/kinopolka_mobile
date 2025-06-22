@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj75bju7rjf6u"]
+
+[ext_resource type="Script" uid="uid://dl4ewywstmgt0" path="res://archieve.gd" id="1_q30y3"]
+[ext_resource type="Theme" uid="uid://s4hstloxxj71" path="res://new_theme.tres" id="2_ajbyf"]
+
+[node name="Control" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q30y3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="Button" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_ajbyf")
+text = "список"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_movies_button_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
