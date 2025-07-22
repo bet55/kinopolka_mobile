@@ -28,6 +28,7 @@ size_flags_vertical = 3
 expand_mode = 1
 
 [node name="Button" type="Button" parent="MarginContainer"]
+visible = false
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_vertical = 8
