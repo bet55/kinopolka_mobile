@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1hbw25gxdvrg"]
+[gd_scene load_steps=14 format=3 uid="uid://c1hbw25gxdvrg"]
 
 [ext_resource type="PackedScene" uid="uid://dvo0krl53kvvj" path="res://movies.tscn" id="1_62e2m"]
-[ext_resource type="Script" uid="uid://dqsxupjxme0s2" path="res://control.gd" id="1_qtu10"]
+[ext_resource type="Script" uid="uid://c63f4tuayh3a5" path="res://main_screen.gd" id="1_qtu10"]
 [ext_resource type="PackedScene" uid="uid://bj75bju7rjf6u" path="res://archieve.tscn" id="2_qtu10"]
+[ext_resource type="Texture2D" uid="uid://bemg3k1lby876" path="res://assets/Garden cozy icons pack/Assets/Clen booton/C_Flask.png" id="4_iy58a"]
+[ext_resource type="Texture2D" uid="uid://dnfclv8rqn4dr" path="res://assets/Garden cozy icons pack/Assets/Clen booton/C_Clapperboard.png" id="5_6a6wx"]
+[ext_resource type="Texture2D" uid="uid://1rf1sd60y6oe" path="res://assets/Garden cozy icons pack/Assets/Clen boton pressed/CP_Flask.png" id="5_pxugv"]
+[ext_resource type="Texture2D" uid="uid://ds5p4lv83mlqu" path="res://assets/Garden cozy icons pack/Assets/Clen booton/C_Book.png" id="6_sky72"]
+[ext_resource type="Texture2D" uid="uid://dn4pm3kosmvqd" path="res://assets/Garden cozy icons pack/Assets/Clen booton/C_Email1.png" id="7_0ytqx"]
+[ext_resource type="Texture2D" uid="uid://b1gkt4nvv4cme" path="res://assets/Garden cozy icons pack/Assets/Clen boton pressed/CP_Clapperboard.png" id="7_eh0v1"]
+[ext_resource type="Texture2D" uid="uid://7n6s3t2y5ll7" path="res://assets/Garden cozy icons pack/Assets/Clen boton pressed/CP_Book.png" id="9_am1vj"]
+[ext_resource type="Texture2D" uid="uid://sur42k10manv" path="res://assets/Garden cozy icons pack/Assets/Clen boton pressed/CP_Email1.png" id="11_g31lc"]
+
+[sub_resource type="Gradient" id="Gradient_pxugv"]
+colors = PackedColorArray(1, 0.968627, 0.894118, 1, 1, 0.968627, 0.894118, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eh0v1"]
+gradient = SubResource("Gradient_pxugv")
+fill_from = Vector2(1, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,10 +26,87 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_qtu10")
 
-[node name="Control" parent="." instance=ExtResource("1_62e2m")]
+[node name="MoveControl" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Movies" parent="MoveControl" instance=ExtResource("1_62e2m")]
 layout_mode = 1
 
-[node name="Control2" parent="." instance=ExtResource("2_qtu10")]
+[node name="Archieve" parent="MoveControl" instance=ExtResource("2_qtu10")]
 layout_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(540, 400)
+
+[node name="SubViewport" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Control" type="Control" parent="Camera2D/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="TextureRect" parent="Camera2D/SubViewport/Control"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_eh0v1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BarTextureButton" type="TextureButton" parent="Camera2D/SubViewport/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("4_iy58a")
+texture_pressed = ExtResource("5_pxugv")
+stretch_mode = 3
+
+[node name="MoviesButton" type="TextureButton" parent="Camera2D/SubViewport/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("5_6a6wx")
+texture_pressed = ExtResource("7_eh0v1")
+stretch_mode = 3
+
+[node name="ArchieveButton" type="TextureButton" parent="Camera2D/SubViewport/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("6_sky72")
+texture_pressed = ExtResource("9_am1vj")
+stretch_mode = 3
+
+[node name="PostcardsTextureButton" type="TextureButton" parent="Camera2D/SubViewport/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("7_0ytqx")
+texture_pressed = ExtResource("11_g31lc")
+stretch_mode = 3
+
+[connection signal="pressed" from="Camera2D/SubViewport/Control/HBoxContainer/MoviesButton" to="." method="_on_movies_button_pressed"]
+[connection signal="pressed" from="Camera2D/SubViewport/Control/HBoxContainer/ArchieveButton" to="." method="_on_archieve_button_pressed"]

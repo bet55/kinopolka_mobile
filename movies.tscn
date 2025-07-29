@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvo0krl53kvvj"]
+[gd_scene load_steps=2 format=3 uid="uid://dvo0krl53kvvj"]
 
 [ext_resource type="Script" uid="uid://d0kt8fvygdjvu" path="res://movies.gd" id="1_jum5h"]
-[ext_resource type="Theme" uid="uid://s4hstloxxj71" path="res://new_theme.tres" id="2_bmr4c"]
 
 [node name="Control" type="ScrollContainer"]
 anchors_preset = 15
@@ -15,27 +14,26 @@ script = ExtResource("1_jum5h")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = -8
+theme_override_constants/margin_bottom = 0
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/GridContainer"]
+[node name="TextureRect" type="TextureButton" parent="MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-expand_mode = 1
-
-[node name="Button" type="Button" parent="MarginContainer"]
-visible = false
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-size_flags_vertical = 8
-theme = ExtResource("2_bmr4c")
-text = "архив"
+mouse_filter = 1
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
-[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_archieve_button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

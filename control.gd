@@ -2,7 +2,7 @@ extends Control
 
 @export var swipe_threshold := 0.3
 @export var swipe_speed := 15.0
-@export var screens_margin := 20
+@export var screens_margin := 0
 @export var direction_threshold := 50.0  # Порог в пикселях для определения направления
 
 var screens := []
