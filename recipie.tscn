@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg115do03knan"]
+
+[ext_resource type="Script" uid="uid://vg4qvi43n35e" path="res://recipie.gd" id="1_xc24y"]
+[ext_resource type="Texture2D" uid="uid://bpifdf41gaq14" path="res://default.png" id="2_twlx2"]
+[ext_resource type="FontFile" uid="uid://bwmqlpbgmkdls" path="res://Stengazeta-Regular_5.ttf" id="3_puew7"]
+
+[node name="Recipie" type="Control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+script = ExtResource("1_xc24y")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(1, 0.968627, 0.894118, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_twlx2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.454902, 0.333333, 0.45098, 1)
+theme_override_fonts/font = ExtResource("3_puew7")
+theme_override_font_sizes/font_size = 36
+text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="IngredientsVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/IngredientsVBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="IngredientNameLabel" type="Label" parent="MarginContainer/VBoxContainer/IngredientsVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0.454902, 0.333333, 0.45098, 1)
+theme_override_fonts/font = ExtResource("3_puew7")
+theme_override_font_sizes/font_size = 24
+text = "asdasdfsfsdfsdfsdf"
+vertical_alignment = 1
+
+[node name="IngredientAmountLabel" type="Label" parent="MarginContainer/VBoxContainer/IngredientsVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0.454902, 0.333333, 0.45098, 1)
+theme_override_fonts/font = ExtResource("3_puew7")
+theme_override_font_sizes/font_size = 24
+text = "asda"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="NotesLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.454902, 0.333333, 0.45098, 1)
+theme_override_fonts/font = ExtResource("3_puew7")
+theme_override_font_sizes/font_size = 24
+text = "asdasd"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

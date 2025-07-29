@@ -8,6 +8,7 @@ extends ScrollContainer
 @onready var texture_rect: TextureButton = $MarginContainer/GridContainer/TextureRect
 
 
+const BASE_URL = "http://185.80.91.29:8000"
 const URL = "http://185.80.91.29:8000/movies/archive/?format=json"
 const MOVIE_DETAILS = preload("res://movie_details.tscn")
 
@@ -26,7 +27,7 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	data = json["data"]
 	for movie_json in data.values():
-		var image_url = movie_json["poster"]
+		var image_url = BASE_URL + movie_json["poster_local"]
 		var new_headers = []
 		var get_image_http_request = HTTPRequest.new()
 		add_child(get_image_http_request)

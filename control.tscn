@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1hbw25gxdvrg"]
+[gd_scene load_steps=15 format=3 uid="uid://c1hbw25gxdvrg"]
 
 [ext_resource type="PackedScene" uid="uid://dvo0krl53kvvj" path="res://movies.tscn" id="1_62e2m"]
 [ext_resource type="Script" uid="uid://c63f4tuayh3a5" path="res://main_screen.gd" id="1_qtu10"]
 [ext_resource type="PackedScene" uid="uid://bj75bju7rjf6u" path="res://archieve.tscn" id="2_qtu10"]
+[ext_resource type="PackedScene" uid="uid://degm58keik5d3" path="res://bar.tscn" id="4_eh0v1"]
 [ext_resource type="Texture2D" uid="uid://bemg3k1lby876" path="res://assets/Garden cozy icons pack/Assets/Clen booton/C_Flask.png" id="4_iy58a"]
 [ext_resource type="Texture2D" uid="uid://dnfclv8rqn4dr" path="res://assets/Garden cozy icons pack/Assets/Clen booton/C_Clapperboard.png" id="5_6a6wx"]
 [ext_resource type="Texture2D" uid="uid://1rf1sd60y6oe" path="res://assets/Garden cozy icons pack/Assets/Clen boton pressed/CP_Flask.png" id="5_pxugv"]
@@ -30,6 +31,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_qtu10")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -2173.0
+offset_top = -607.0
+offset_right = 2178.0
+offset_bottom = 1526.0
+color = Color(0.454902, 0.333333, 0.45098, 1)
+
 [node name="MoveControl" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -37,6 +46,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Bar" parent="MoveControl" instance=ExtResource("4_eh0v1")]
+layout_mode = 1
 
 [node name="Movies" parent="MoveControl" instance=ExtResource("1_62e2m")]
 layout_mode = 1
@@ -108,5 +120,6 @@ texture_normal = ExtResource("7_0ytqx")
 texture_pressed = ExtResource("11_g31lc")
 stretch_mode = 3
 
+[connection signal="pressed" from="Camera2D/SubViewport/Control/HBoxContainer/BarTextureButton" to="." method="_on_bar_texture_button_pressed"]
 [connection signal="pressed" from="Camera2D/SubViewport/Control/HBoxContainer/MoviesButton" to="." method="_on_movies_button_pressed"]
 [connection signal="pressed" from="Camera2D/SubViewport/Control/HBoxContainer/ArchieveButton" to="." method="_on_archieve_button_pressed"]
