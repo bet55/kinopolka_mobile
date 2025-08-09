@@ -25,8 +25,8 @@ func _ready() -> void:
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	var json = JSON.parse_string(body.get_string_from_utf8())
-	data = json["data"]
-	for movie_json in data.values():
+	#data = json["data"]
+	for movie_json in json.values():
 		var image_url = BASE_URL + movie_json["poster_local"]
 		var new_headers = []
 		var get_image_http_request = HTTPRequest.new()

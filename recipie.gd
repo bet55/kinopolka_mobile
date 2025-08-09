@@ -4,10 +4,11 @@ extends Control
 @onready var ingredients_v_box_container: VBoxContainer = $MarginContainer/VBoxContainer/IngredientsVBoxContainer
 @onready var notes_label: Label = $MarginContainer/VBoxContainer/NotesLabel
 @onready var v_box_container: VBoxContainer = $MarginContainer/VBoxContainer
-@onready var ingredient_name_label: Label = $MarginContainer/VBoxContainer/IngredientsVBoxContainer/HBoxContainer/IngredientNameLabel
+
 @onready var ingredient_amount_label: Label = $MarginContainer/VBoxContainer/IngredientsVBoxContainer/HBoxContainer/IngredientAmountLabel
 @onready var h_box_container: HBoxContainer = $MarginContainer/VBoxContainer/IngredientsVBoxContainer/HBoxContainer
 @onready var name_label: Label = $MarginContainer/VBoxContainer/MarginContainer/NameLabel
+@onready var ingredient_name_label: Label = $MarginContainer/VBoxContainer/IngredientsVBoxContainer/HBoxContainer/MarginContainer/IngredientNameLabel
 
 
 

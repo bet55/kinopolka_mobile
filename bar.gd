@@ -48,7 +48,7 @@ func _on_get_image_http_request_request_completed(result: int, response_code: in
 		recipie.notes_label.text = cocktail['instructions']
 		for ingredient in cocktail['ingredients']:
 			var ingredient_box = recipie.h_box_container.duplicate()
-			ingredient_box.get_children()[0].text = ingredient['ingredient']['name']
+			ingredient_box.get_children()[0].get_children()[0].text = ingredient['ingredient']['name']
 			ingredient_box.get_children()[1].text = str(ingredient['amount']) + ' ' + ingredient['unit_display']
 			ingredient_box.visible = true
 			recipie.ingredients_v_box_container.add_child(ingredient_box)

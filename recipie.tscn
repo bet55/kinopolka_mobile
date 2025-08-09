@@ -56,7 +56,7 @@ layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.454902, 0.333333, 0.45098, 1)
 theme_override_fonts/font = ExtResource("3_puew7")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 96
 text = "123"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -73,13 +73,20 @@ layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="IngredientNameLabel" type="Label" parent="MarginContainer/VBoxContainer/IngredientsVBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/IngredientsVBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 0
+
+[node name="IngredientNameLabel" type="Label" parent="MarginContainer/VBoxContainer/IngredientsVBoxContainer/HBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_colors/font_color = Color(0.454902, 0.333333, 0.45098, 1)
 theme_override_fonts/font = ExtResource("3_puew7")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "asdasdfsfsdfsdfsdf"
 vertical_alignment = 1
 
@@ -89,7 +96,7 @@ layout_mode = 2
 size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0.454902, 0.333333, 0.45098, 1)
 theme_override_fonts/font = ExtResource("3_puew7")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "asda"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -100,7 +107,7 @@ layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.454902, 0.333333, 0.45098, 1)
 theme_override_fonts/font = ExtResource("3_puew7")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "asdasd"
 horizontal_alignment = 1
 vertical_alignment = 1
